@@ -34,7 +34,7 @@ def main():
 
     panel = data.DataReader(symbols, 'yahoo', dt_from, dt_to)
     print(panel)
-    print(panel.loc['Open','2014-02-03','AAPL'])
+    #print(panel.loc['Open','2014-02-03','AAPL'])
     filename = os.path.join(basepath, "%s_%s_%s.p" % ("_".join(symbols), dt_from.strftime(fmt_dt), dt_to.strftime(fmt_dt)))
     print("Output: %s" % filename)
     panel.to_pickle(filename)
