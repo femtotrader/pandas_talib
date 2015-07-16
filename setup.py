@@ -12,9 +12,6 @@ NAME = 'pandas_talib'
 with io.open(path.join(here, NAME, 'version.py'), 'rt', encoding='UTF-8') as f:
     exec(f.read())
 
-#from version import __author__, __copyright__, __credits__, \
-#    __license__, __version__, __maintainer__, __email__, __status__, __url__
-
 setup(
     name=NAME,
 
@@ -25,7 +22,7 @@ setup(
     version=__version__,
 
     setup_requires=['setuptools-markdown'],
-    description='Pandas matrix confusion with plot features (matplotlib, seaborn...)',
+    description='Pandas trading technical analysis',
     long_description_markdown_filename='README.md',
 
     # The project's main homepage.
@@ -66,12 +63,12 @@ setup(
         'Programming Language :: Python :: 3.4',
 
         # Pick your license as you wish (should match "license" above)
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
 
     ],
 
     # What does your project relate to?
-    keywords='python pandas matrix confusion plot matplotlib seaborn machine learning',
+    keywords='python pandas trading technical analysis',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
@@ -81,7 +78,7 @@ setup(
     # project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/technical.html#install-requires-vs-requirements-files
-    install_requires=['pandas', 'matplotlib', 'enum34', 'scipy', 'scikit-learn', 'click'],
+    install_requires=['pandas', 'matplotlib'],
 
     # List additional groups of dependencies here (e.g. development dependencies).
     # You can install these using the following syntax, for example:
