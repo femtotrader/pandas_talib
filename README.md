@@ -17,7 +17,7 @@ A Python Pandas implementation of technical indicators
 
 Original version from:
 
-- Bruno Franca
+- [Bruno Franca](https://github.com/brunogfranca)
 
 - [panpanpandas](https://github.com/panpanpandas)
 
