@@ -6,8 +6,8 @@
 [![Downloads monthly](https://img.shields.io/pypi/dm/pandas_talib.svg)](https://pypi.python.org/pypi/pandas_talib.svg/)
 [![Requirements Status](https://requires.io/github/femtotrader/pandas_talib.svg/requirements.svg?branch=master)](https://requires.io/github/femtotrader/pandas_talib.svg/requirements/?branch=master)
 [![Code Health](https://landscape.io/github/femtotrader/pandas_talib.svg/master/landscape.svg?style=flat)](https://landscape.io/github/femtotrader/pandas_talib.svg/master)
-[![Codacy Badge](https://www.codacy.com/project/badge/)](https://www.codacy.com/app/user/pandas_confusion)
-[![Build Status](https://travis-ci.org/femtotrader/pandas_talib.svg)](https://travis-ci.org/femtotrader/pandas_confusion)
+[![Codacy Badge](https://www.codacy.com/project/badge/)](https://www.codacy.com/app/user/pandas_talib)
+[![Build Status](https://travis-ci.org/femtotrader/pandas_talib.svg)](https://travis-ci.org/femtotrader/pandas_talib)
 
 
 ** Work in progress **

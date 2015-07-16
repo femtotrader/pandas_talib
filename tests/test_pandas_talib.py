@@ -2,4 +2,4 @@
 # -*- coding: utf-8 -*-
 
 def test_pandas_talib():
-    pass
+    raise(NotImplementedError)
