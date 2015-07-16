@@ -4,9 +4,9 @@
 [![License](https://img.shields.io/pypi/l/pandas_talib.svg)](https://pypi.python.org/pypi/pandas_talib.svg/)
 [![Development Status](https://img.shields.io/pypi/status/pandas_talib.svg)](https://pypi.python.org/pypi/pandas_talib.svg/)
 [![Downloads monthly](https://img.shields.io/pypi/dm/pandas_talib.svg)](https://pypi.python.org/pypi/pandas_talib.svg/)
-[![Requirements Status](https://requires.io/github/femtotrader/pandas_talib.svg/requirements.svg?branch=master)](https://requires.io/github/femtotrader/pandas_talib.svg/requirements/?branch=master)
-[![Code Health](https://landscape.io/github/femtotrader/pandas_talib.svg/master/landscape.svg?style=flat)](https://landscape.io/github/femtotrader/pandas_talib.svg/master)
-[![Codacy Badge](https://www.codacy.com/project/badge/)](https://www.codacy.com/app/user/pandas_talib)
+[![Requirements Status](https://requires.io/github/femtotrader/pandas_talib/requirements.svg?branch=master)](https://requires.io/github/femtotrader/pandas_talib/requirements/?branch=master)
+[![Code Health](https://landscape.io/github/femtotrader/pandas_talib/master/landscape.svg?style=flat)](https://landscape.io/github/femtotrader/pandas_talib/master)
+[![Codacy Badge](https://www.codacy.com/project/badge/1bf3606360934588ba764cca32210f52)](https://www.codacy.com/app/femto-trader/pandas_talib)
 [![Build Status](https://travis-ci.org/femtotrader/pandas_talib.svg)](https://travis-ci.org/femtotrader/pandas_talib)
 
 
