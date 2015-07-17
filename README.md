@@ -31,49 +31,6 @@ See also:
 
 - <https://www.quantopian.com/posts/technical-analysis-indicators-without-talib-code>
 
-
-Function            | Notation                                  | Progress
-------------------- | ----------------------------------------- | ---------
-Content Cell        | Content Cell                              |
-Content Cell        | Content Cell                              |
-ACCDIST             | Accumulation/Distribution                 | DONE
-AD                  | Chaikin A/D Line                          | 
-ADOSC               | Chaikin A/D Oscillator                    | 
-ADX                 | Average Directional Movement Index        | DONE
-ADXR                | Average Directional Movement Index Rating | 
-APO                 | Absolute Price Oscillator                 | 
-AROON               | Aroon                                     | 
-AROONOSC            | Aroon Oscillator                          | 
-ATR                 | Average True Range                        | DONE
-AVGPRICE            | Average Price                             | 
-BBANDS              | Bollinger Bands                           | DONE
-BETA                | Beta                                      | 
-BOP                 | Balance Of Power                          | 
-CCI                 | Commodity Channel Index                   | DONE
-CDL2CROWS           | Two Crows                                 | 
-CDL3BLACKCROWS      | Three Black Crows                         | 
-CDL3INSIDE          | Three Inside Up/Down                      | 
-CDL3LINESTRIKE      | Three-Line Strike                         | 
-CDL3OUTSIDE         | Three Outside Up/Down                     | 
-CDL3STARSINSOUTH    | Three Stars In The South | 
-CDL3WHITESOLDIERS   | Three Advancing White Soldiers | 
-CDLABANDONEDBABY    | Abandoned Baby | 
-CDLADVANCEBLOCK     | Advance Block | 
-CDLBELTHOLD         | Belt-hold | 
-CDLBREAKAWAY        | Breakaway | 
-CDLCLOSINGMARUBOZU  | Closing Marubozu | 
-CDLCONCEALBABYSWALL | Concealing Baby Swallow | 
-CDLCOUNTERATTACK    | Counterattack | 
-CDLDARKCLOUDCOVER   | Dark Cloud Cover | 
-CDLDOJI             | Doji | 
-CDLDOJISTAR         | Doji Star | 
-CDLDRAGONFLYDOJI    | Dragonfly Doji | 
-CDLENGULFING        | Engulfing Pattern | 
-CDLEVENINGDOJISTAR  | Evening Doji Star | 
-CDLEVENINGSTAR      | Evening Star | 
-CDLGAPSIDESIDEWHITE | Up/Down-gap side-by-side white lines | 
-CDLGRAVESTONEDOJI   | Gravestone Doji | 
-
 ## Install
 
 A package is available and can be downloaded from PyPi and installed using:
