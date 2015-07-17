@@ -1,9 +1,9 @@
 __author__ = "Femto Trader"
 __copyright__ = "Copyright 2015, celles.net"
-__credits__ = ["Femto Trader", "panpanpandas", "Bruno Franca"]
+__credits__ = ["Femto Trader", "panpanpandas", "Bruno Franca", "Peter Bakker"]
 __license__ = "MIT"
 __version__ = "0.0.1"
 __maintainer__ = "Femto Trader"
 __email__ = "femto.trader@gmail.com"
 __status__ = "Development"
-__url__ = 'https://github.com/scls19fr/pandas_confusion'
+__url__ = 'https://github.com/femtotrader/pandas_talib'
