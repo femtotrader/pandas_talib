@@ -1,7 +1,5 @@
 Function            | Notation                                  | Progress
 ------------------- | ----------------------------------------- | ---------
-Content Cell        | Content Cell                              |
-Content Cell        | Content Cell                              |
 ACCDIST             | Accumulation/Distribution                 | DONE
 AD                  | Chaikin A/D Line                          | 
 ADOSC               | Chaikin A/D Oscillator                    | 
