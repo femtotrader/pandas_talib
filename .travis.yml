@@ -4,6 +4,11 @@ python:
   - "3.3"
   - "3.4"
 
+addons:
+  apt_packages:
+    - pandoc
+    - ta-lib
+
 # command to install dependencies
 install:
   - sudo apt-get update
@@ -33,7 +38,3 @@ install:
 # command to run tests
 script: nosetests
 
-addons:
-  apt_packages:
-    - pandoc
-    - ta-lib
