@@ -35,7 +35,11 @@ def test_indicator_EMA():
     n = 3
     result = EMA(df, n)
     isinstance(result, pd.DataFrame)
+    expected = talib.EMA(df['Close'].values, timeperiod=n)
+    np.testing.assert_almost_equal(result.values, expected)
+"""
 
+"""
 def test_indicator_MOM():
     n = 3
     result = MOM(df, n)
