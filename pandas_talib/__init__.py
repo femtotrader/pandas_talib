@@ -1,7 +1,10 @@
 '''
 Created on April 15, 2012
+Last update on July 18, 2015
 
 @author: Bruno Franca
+@author: Peter Bakker
+@author: Femto Trader
 '''
 import numpy as np
 import pandas as pd
@@ -29,39 +32,39 @@ class Settings(object):
 
 SETTINGS = Settings()
 
-def MA(df, n):
+def MA(df, n, price='Close'):
     """
     Moving Average
     """
-    MA = pd.Series(pd.rolling_mean(df['Close'], n), name = 'MA_' + str(n))
+    result = pd.Series(pd.rolling_mean(df[price], n), name = 'MA_' + str(n))
     if not SETTINGS.join:
-        return MA
+        return result
     else:
-        df = df.join(MA)
+        df = df.join(result)
         return df
 
-def EMA(df, n):
+def EMA(df, n, price='Close'):
     """
     Exponential Moving Average
     """
-    EMA = pd.Series(pd.ewma(df['Close'], span = n, min_periods = n - 1), name = 'EMA_' + str(n))
+    EMA = pd.Series(pd.ewma(df[price], span = n, min_periods = n - 1), name = 'EMA_' + str(n))
     df = df.join(EMA)
     return df
 
-def MOM(df, n):
+def MOM(df, n, price='Close'):
     """
     Momentum
     """
-    M = pd.Series(df['Close'].diff(n), name = 'Momentum_' + str(n))
+    M = pd.Series(df[price].diff(n), name = 'Momentum_' + str(n))
     df = df.join(M)
     return df
 
-def ROC(df, n):
+def ROC(df, n, price='Close'):
     """
     Rate of Change
     """
-    M = df['Close'].diff(n - 1)
-    N = df['Close'].shift(n - 1)
+    M = df[price].diff(n - 1)
+    N = df[price].shift(n - 1)
     ROC = pd.Series(M / N, name = 'ROC_' + str(n))
     df = df.join(ROC)
     return df
@@ -72,7 +75,7 @@ def ATR(df, n):
     """
     i = 0
     TR_l = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         TR = max(df.get_value(i + 1, 'High'), df.get_value(i, 'Close')) - min(df.get_value(i + 1, 'Low'), df.get_value(i, 'Close'))
         TR_l.append(TR)
         i = i + 1
@@ -81,16 +84,16 @@ def ATR(df, n):
     df = df.join(ATR)
     return df
 
-def BBANDS(df, n):
+def BBANDS(df, n, price='Close'):
     """
     Bollinger Bands
     """
-    MA = pd.Series(pd.rolling_mean(df['Close'], n))
-    MSD = pd.Series(pd.rolling_std(df['Close'], n))
+    MA = pd.Series(pd.rolling_mean(df[price], n))
+    MSD = pd.Series(pd.rolling_std(df[price], n))
     b1 = 4 * MSD / MA
     B1 = pd.Series(b1, name = 'BollingerB_' + str(n))
     df = df.join(B1)
-    b2 = (df['Close'] - MA + 2 * MSD) / (4 * MSD)
+    b2 = (df[price] - MA + 2 * MSD) / (4 * MSD)
     B2 = pd.Series(b2, name = 'Bollinger%b_' + str(n))
     df = df.join(B2)
     return df
@@ -137,7 +140,7 @@ def TRIX(df, n):
     EX3 = pd.ewma(EX2, span = n, min_periods = n - 1)
     i = 0
     ROC_l = [0]
-    while i + 1 <= df.index[-1]:
+    while i + 1 <= len(df) - 1: #df.index[-1]:
         ROC = (EX3[i + 1] - EX3[i]) / EX3[i]
         ROC_l.append(ROC)
         i = i + 1
@@ -152,7 +155,7 @@ def ADX(df, n, n_ADX):
     i = 0
     UpI = []
     DoI = []
-    while i + 1 <= df.index[-1]:
+    while i + 1 <= len(df) - 1: #df.index[-1]:
         UpMove = df.get_value(i + 1, 'High') - df.get_value(i, 'High')
         DoMove = df.get_value(i, 'Low') - df.get_value(i + 1, 'Low')
         if UpMove > DoMove and UpMove > 0:
@@ -166,7 +169,7 @@ def ADX(df, n, n_ADX):
         i = i + 1
     i = 0
     TR_l = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         TR = max(df.get_value(i + 1, 'High'), df.get_value(i, 'Close')) - min(df.get_value(i + 1, 'Low'), df.get_value(i, 'Close'))
         TR_l.append(TR)
         i = i + 1
@@ -212,13 +215,13 @@ def Vortex(df, n):
     """
     i = 0
     TR = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         Range = max(df.get_value(i + 1, 'High'), df.get_value(i, 'Close')) - min(df.get_value(i + 1, 'Low'), df.get_value(i, 'Close'))
         TR.append(Range)
         i = i + 1
     i = 0
     VM = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         Range = abs(df.get_value(i + 1, 'High') - df.get_value(i, 'Low')) - abs(df.get_value(i + 1, 'Low') - df.get_value(i, 'High'))
         VM.append(Range)
         i = i + 1
@@ -253,7 +256,7 @@ def RSI(df, n):
     i = 0
     UpI = [0]
     DoI = [0]
-    while i + 1 <= df.index[-1]:
+    while i + 1 <= len(df) - 1: # df.index[-1]
         UpMove = df.get_value(i + 1, 'High') - df.get_value(i, 'High')
         DoMove = df.get_value(i, 'Low') - df.get_value(i + 1, 'Low')
         if UpMove > DoMove and UpMove > 0:
@@ -315,7 +318,7 @@ def MFI(df, n):
     PP = (df['High'] + df['Low'] + df['Close']) / 3
     i = 0
     PosMF = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         if PP[i + 1] > PP[i]:
             PosMF.append(PP[i + 1] * df.get_value(i + 1, 'Volume'))
         else:
@@ -334,7 +337,7 @@ def OBV(df, n):
     """
     i = 0
     OBV = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         if df.get_value(i + 1, 'Close') - df.get_value(i, 'Close') > 0:
             OBV.append(df.get_value(i + 1, 'Volume'))
         if df.get_value(i + 1, 'Close') - df.get_value(i, 'Close') == 0:
@@ -406,7 +409,7 @@ def ULTOSC(df):
     i = 0
     TR_l = [0]
     BP_l = [0]
-    while i < df.index[-1]:
+    while i < len(df) - 1: #df.index[-1]:
         TR = max(df.get_value(i + 1, 'High'), df.get_value(i, 'Close')) - min(df.get_value(i + 1, 'Low'), df.get_value(i, 'Close'))
         TR_l.append(TR)
         BP = df.get_value(i + 1, 'Close') - min(df.get_value(i + 1, 'Low'), df.get_value(i, 'Close'))
@@ -426,7 +429,7 @@ def DONCH(df, n):
         DC_l.append(0)
         i = i + 1
     i = 0
-    while i + n - 1 < df.index[-1]:
+    while i + n - 1 < len(df) - 1: #df.index[-1]:
         DC = max(df['High'].ix[i:i + n - 1]) - min(df['Low'].ix[i:i + n - 1])
         DC_l.append(DC)
         i = i + 1
@@ -439,5 +442,6 @@ def STDDEV(df, n):
     """
     Standard Deviation
     """
-    df = df.join(pd.Series(pd.rolling_std(df['Close'], n), name = 'STD_' + str(n)))
+    result = pd.Series(pd.rolling_std(df['Close'], n), name = 'STD_' + str(n))
+    df = df.join(result)
     return df
