@@ -5,6 +5,7 @@ import os
 
 import pandas as pd
 from pandas_talib import *
+import talib
 
 #def test_pandas_talib():
 #    raise(NotImplementedError)
@@ -20,11 +21,16 @@ panel.major_axis.name = "Date"
 
 df = panel.loc[:,:,'AAPL']
 
+SETTINGS.join = False
+
 def test_indicator_MA():
     n = 3
     result = MA(df, n)
     isinstance(result, pd.DataFrame)
+    expected = talib.MA(df['Close'].values, timeperiod=n)
+    np.testing.assert_almost_equal(result.values, expected)
 
+"""
 def test_indicator_EMA():
     n = 3
     result = EMA(df, n)
@@ -165,3 +171,4 @@ def test_indicator_STDDEV():
     n = 2
     result = STDDEV(df, n)
     isinstance(result, pd.DataFrame)
+"""
