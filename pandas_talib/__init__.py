@@ -26,6 +26,11 @@ class Columns(object):
 
 # price = COL.CLOSE
 
+indicators = ["MA", "EMA", "MOM", "ROC", "ATR", "BBANDS", "PPSR", "STOK", "STO", 
+    "TRIX", "ADX", "MACD", "MassI", "Vortex", "KST", "RSI", "TSI", "ACCDIST", 
+    "Chaikin", "MFI", "OBV", "FORCE", "EOM", "CCI", "COPP", "KELCH", "ULTOSC", 
+    "DONCH", "STDDEV"]
+
 class Settings(object):
     join = True
     col = Columns()
@@ -36,7 +41,8 @@ def MA(df, n, price='Close'):
     """
     Moving Average
     """
-    result = pd.Series(pd.rolling_mean(df[price], n), name = 'MA_' + str(n))
+    name = 'MA_{n}'.format(n=n)
+    result = pd.Series(pd.rolling_mean(df[price], n), name = name)
     if not SETTINGS.join:
         return result
     else:
