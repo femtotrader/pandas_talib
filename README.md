@@ -64,6 +64,12 @@ Run a given test
 
 	$ nosetests tests.test_pandas_talib:test_function -s -v
 
+### Run samples
+
+Run `samples/main.py` (from project root directory)
+
+	$ python samples/main.py
+
 ### Install development version
 
 	$ python setup.py install
