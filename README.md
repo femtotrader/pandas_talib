@@ -31,6 +31,9 @@ See also:
 
 - <https://www.quantopian.com/posts/technical-analysis-indicators-without-talib-code>
 
+If you are looking for a more complete set of technical indicators you might have a look at this TA-Lib Python wrapper: <https://github.com/mrjbq7/ta-lib>
+
+
 ## Install
 
 A package is available and can be downloaded from PyPi and installed using:
