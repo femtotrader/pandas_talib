@@ -25,42 +25,46 @@ SETTINGS.join = False
 
 def test_indicator_MA():
     n = 3
+    price = 'Close'
     result = MA(df, n)
     isinstance(result, pd.DataFrame)
-    expected = talib.MA(df['Close'].values, timeperiod=n)
+    expected = talib.MA(df[price].values, timeperiod=n)
     np.testing.assert_almost_equal(result.values, expected)
 
 """
 def test_indicator_EMA():
     n = 3
+    price = 'Close'
     result = EMA(df, n)
     isinstance(result, pd.DataFrame)
-    expected = talib.EMA(df['Close'].values, timeperiod=n)
+    expected = talib.EMA(df[price].values, timeperiod=n)
     np.testing.assert_almost_equal(result.values, expected)
 """
 
 def test_indicator_MOM():
     n = 3
+    price = 'Close'
     result = MOM(df, n)
     isinstance(result, pd.DataFrame)
-    expected = talib.MOM(df['Close'].values, timeperiod=n)
-    np.testing.assert_almost_equal(result.values, expected)
-
-def test_indicator_ROC():
-    n = 3
-    result = ROC(df, n)
-    isinstance(result, pd.DataFrame)
-    expected = talib.ROC(df['Close'].values, timeperiod=n)
+    expected = talib.MOM(df[price].values, timeperiod=n)
     np.testing.assert_almost_equal(result.values, expected)
 
 """
+def test_indicator_ROC():
+    n = 3
+    price = 'Close'
+    result = ROC(df, n)
+    isinstance(result, pd.DataFrame)
+    expected = talib.ROC(df[price].values, timeperiod=n)
+    np.testing.assert_almost_equal(result.values, expected)
+"""
+
 def test_indicator_ATR():
     n = 3
     result = ATR(df, n)
     isinstance(result, pd.DataFrame)
-    expected = talib.ATR(df['Close'].values, timeperiod=n)
+    expected = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values, timeperiod=n)
     np.testing.assert_almost_equal(result.values, expected)
-"""
 
 """
 def test_indicator_BBANDS():
