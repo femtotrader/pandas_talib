@@ -62,7 +62,7 @@ Run all unit tests
 	
 Run a given test
 
-	$ nosetests tests.test_pandas_talib:test_function -s -v
+	$ nosetests tests.test_pandas_talib:test_indicator_MA -s -v
 
 ### Run samples
 

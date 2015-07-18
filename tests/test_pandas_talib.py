@@ -39,22 +39,30 @@ def test_indicator_EMA():
     np.testing.assert_almost_equal(result.values, expected)
 """
 
-"""
 def test_indicator_MOM():
     n = 3
     result = MOM(df, n)
     isinstance(result, pd.DataFrame)
+    expected = talib.MOM(df['Close'].values, timeperiod=n)
+    np.testing.assert_almost_equal(result.values, expected)
 
 def test_indicator_ROC():
     n = 3
     result = ROC(df, n)
     isinstance(result, pd.DataFrame)
+    expected = talib.ROC(df['Close'].values, timeperiod=n)
+    np.testing.assert_almost_equal(result.values, expected)
 
+"""
 def test_indicator_ATR():
     n = 3
     result = ATR(df, n)
     isinstance(result, pd.DataFrame)
+    expected = talib.ATR(df['Close'].values, timeperiod=n)
+    np.testing.assert_almost_equal(result.values, expected)
+"""
 
+"""
 def test_indicator_BBANDS():
     n = 3
     result = BBANDS(df, n)
