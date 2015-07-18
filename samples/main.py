@@ -13,10 +13,13 @@ def main():
     #print(panel.loc['Open','2014-02-03','AAPL'])
     panel = panel.iloc[:,1:,:]
     panel.major_axis.name = "Date"
-    print(panel)
+    #print(panel)
 
     df_AAPL = panel.loc[:,:,'AAPL']
     print(df_AAPL)
+
+    SETTINGS.join = False
+    print(MA(df_AAPL, 3))
 
 if __name__ == '__main__':
     main()
