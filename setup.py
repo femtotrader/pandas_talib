@@ -21,9 +21,8 @@ setup(
     #version='0.0.2',
     version=__version__,
 
-    setup_requires=['setuptools-markdown'],
     description='Pandas trading technical analysis',
-    long_description_markdown_filename='README.md',
+    long_description='README.rst',
 
     # The project's main homepage.
     url=__url__,
@@ -110,4 +109,3 @@ setup(
         ],
     },
 )
-
