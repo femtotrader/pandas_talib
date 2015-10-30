@@ -37,9 +37,10 @@ install:
   # Replace dep1 dep2 ... with your dependencies
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION numpy pandas
   - source activate test-environment
-  - pip install ta-lib # Python TA-Lib wrapper
+  - pip install ta-lib pandas # Python TA-Lib wrapper
   - python setup.py install
 
 # command to run tests
-script: nosetests
+script:
+  python setup.py test
 
