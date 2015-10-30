@@ -4,24 +4,27 @@
 import os
 
 import pandas as pd
-from pandas_talib import *
+import numpy as np
 import talib
-
-#def test_pandas_talib():
+from pandas_talib import (
+    MA,
+    MOM,
+    ATR,
+)
+# def test_pandas_talib():
 #    raise(NotImplementedError)
 
 basepath = os.path.dirname(__file__)
 filename = os.path.join(basepath, "..", "data", "AAPL_GOOGL_IBM_20140101_20141201.xls")
 d = pd.read_excel(filename, sheetname=None)
 panel = pd.Panel.from_dict(d)
-#print(panel.loc['Open','2014-02-03','AAPL'])
-panel = panel.iloc[:,1:,:]
+# print(panel.loc['Open','2014-02-03','AAPL'])
+panel = panel.iloc[:, 1:, :]
 panel.major_axis.name = "Date"
-#print(panel)
+# print(panel)
 
-df = panel.loc[:,:,'AAPL']
+df = panel.loc[:, :, 'AAPL']
 
-SETTINGS.join = False
 
 def test_indicator_MA():
     n = 3
@@ -41,6 +44,7 @@ def test_indicator_EMA():
     np.testing.assert_almost_equal(result.values, expected)
 """
 
+
 def test_indicator_MOM():
     n = 3
     price = 'Close'
@@ -58,6 +62,7 @@ def test_indicator_ROC():
     expected = talib.ROC(df[price].values, timeperiod=n)
     np.testing.assert_almost_equal(result.values, expected)
 """
+
 
 def test_indicator_ATR():
     n = 3

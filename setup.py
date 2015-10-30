@@ -107,5 +107,6 @@ setup(
     #        'sample=sample:main',
     #    ],
     #},
+    tests_require=['xlrd'],
     test_suite='tests',
 )
