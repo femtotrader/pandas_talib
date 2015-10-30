@@ -142,6 +142,11 @@ def STO(df, n):
     return out(SETTINGS, df, result)
 
 
+def SMA(df, timeperiod, key='Close'):
+    result = pd.rolling_mean(df[key], timeperiod, min_periods=timeperiod)
+    return out(SETTINGS, df, result)
+
+
 def TRIX(df, n):
     """
     Trix

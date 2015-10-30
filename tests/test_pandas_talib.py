@@ -7,6 +7,8 @@ import pandas as pd
 import numpy as np
 import talib
 from pandas_talib import (
+    SETTINGS,
+    SMA,
     MA,
     MOM,
     ATR,
@@ -24,6 +26,19 @@ panel.major_axis.name = "Date"
 # print(panel)
 
 df = panel.loc[:, :, 'AAPL']
+
+SETTINGS.join = False
+
+
+def test_indicator_SMA():
+    timeperiod = 10
+    import ipdb
+    ipdb.set_trace()
+    random_serie = pd.DataFrame(np.random.uniform(0, 1, size=10), columns=['last'])
+    result = SMA(random_serie, timeperiod, key='last')
+    isinstance(result, pd.DataFrame)
+    expected = talib.SMA(random_serie['last'].values, timeperiod=10)
+    np.testing.assert_almost_equal(result.values, expected)
 
 
 def test_indicator_MA():
