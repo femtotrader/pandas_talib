@@ -32,8 +32,6 @@ SETTINGS.join = False
 
 def test_indicator_SMA():
     timeperiod = 10
-    import ipdb
-    ipdb.set_trace()
     random_serie = pd.DataFrame(np.random.uniform(0, 1, size=10), columns=['last'])
     result = SMA(random_serie, timeperiod, key='last')
     isinstance(result, pd.DataFrame)
