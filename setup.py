@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages  # Always prefer setuptools over distutils
-from codecs import open  # To use a consistent encoding
 from os import path
 import io
 
@@ -77,7 +76,7 @@ setup(
     # project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/technical.html#install-requires-vs-requirements-files
-    install_requires=['pandas', 'matplotlib'],
+    install_requires=['pandas'],
 
     # List additional groups of dependencies here (e.g. development dependencies).
     # You can install these using the following syntax, for example:
@@ -108,4 +107,6 @@ setup(
     #        'sample=sample:main',
     #    ],
     #},
+    tests_require=['xlrd'],
+    test_suite='tests',
 )
