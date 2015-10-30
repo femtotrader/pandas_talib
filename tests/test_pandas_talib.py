@@ -78,8 +78,6 @@ class TestFunctions(unittest.TestCase):
     """
 
     def test_indicator_ATR(self):
-        import ipdb
-        ipdb.set_trace()
         n = 3
         result = ATR(df, n)
         isinstance(result, pd.DataFrame)
