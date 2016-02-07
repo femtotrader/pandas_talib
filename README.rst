@@ -95,7 +95,7 @@ or
 
 ::
 
-    $ sudo pip install git+git://github.com/femtotrader/pandas_talib.git
+    $ sudo pip install git+https://github.com/femtotrader/pandas_talib.git
 
 Collaborating
 ~~~~~~~~~~~~~
