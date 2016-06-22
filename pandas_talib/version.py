@@ -1,5 +1,5 @@
 __author__ = "Femto Trader"
-__copyright__ = "Copyright 2015, celles.net"
+__copyright__ = "Copyright 2015"
 __credits__ = ["Femto Trader", "panpanpandas", "Bruno Franca", "Peter Bakker"]
 __license__ = "MIT"
 __version__ = "0.0.1"
