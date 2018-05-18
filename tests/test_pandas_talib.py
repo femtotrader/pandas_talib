@@ -7,24 +7,14 @@ import unittest
 import pandas as pd
 import numpy as np
 import talib
-from pandas_talib import (
-    SETTINGS,
-    SMA,
-    MA,
-    MOM,
-    ATR,
-)
-# def test_pandas_talib(self):
-#    raise(NotImplementedError)
+from pandas_talib import *
 
 basepath = os.path.dirname(__file__)
 filename = os.path.join(basepath, "..", "data", "AAPL_GOOGL_IBM_20140101_20141201.xls")
 d = pd.read_excel(filename, sheetname=None)
 panel = pd.Panel.from_dict(d)
-# print(panel.loc['Open','2014-02-03','AAPL'])
 panel = panel.iloc[:, 1:, :]
 panel.major_axis.name = "Date"
-# print(panel)
 
 df = panel.loc[:, :, 'AAPL']
 
@@ -49,7 +39,6 @@ class TestFunctions(unittest.TestCase):
         expected = talib.MA(df[price].values, timeperiod=n)
         np.testing.assert_almost_equal(result.values, expected)
 
-    """
     def test_indicator_EMA(self):
         n = 3
         price = 'Close'
@@ -57,7 +46,6 @@ class TestFunctions(unittest.TestCase):
         isinstance(result, pd.DataFrame)
         expected = talib.EMA(df[price].values, timeperiod=n)
         np.testing.assert_almost_equal(result.values, expected)
-    """
 
     def test_indicator_MOM(self):
         n = 3
@@ -67,7 +55,6 @@ class TestFunctions(unittest.TestCase):
         expected = talib.MOM(df[price].values, timeperiod=n)
         np.testing.assert_almost_equal(result.values, expected)
 
-    """
     def test_indicator_ROC(self):
         n = 3
         price = 'Close'
@@ -75,16 +62,16 @@ class TestFunctions(unittest.TestCase):
         isinstance(result, pd.DataFrame)
         expected = talib.ROC(df[price].values, timeperiod=n)
         np.testing.assert_almost_equal(result.values, expected)
-    """
 
     def test_indicator_ATR(self):
-        n = 3
+        n = 5
         result = ATR(df, n)
         isinstance(result, pd.DataFrame)
+        
         expected = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values, timeperiod=n)
-        np.testing.assert_almost_equal(result.values, expected)
+        
+        np.testing.assert_almost_equal(result, expected[1::])
 
-    """
     def test_indicator_BBANDS(self):
         n = 3
         result = BBANDS(df, n)
@@ -205,4 +192,3 @@ class TestFunctions(unittest.TestCase):
         n = 2
         result = STDDEV(df, n)
         isinstance(result, pd.DataFrame)
-    """

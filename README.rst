@@ -9,6 +9,8 @@ pandas\_talib
 
 A Python Pandas implementation of technical indicators
 
+As of May 16, 2018, this repo is partially maintained by `Yao Hong Kok <https://github.com/yaohongkok>`__ Currently, May 17, 2018 updates are tested with Python 3.6 and pandas 0.23.0.
+
 Original version from:
 
 -  `Bruno Franca <https://github.com/brunogfranca>`__
@@ -53,6 +55,10 @@ You can clone repository to try to fix issues yourself using:
 Run unit tests
 ~~~~~~~~~~~~~~
 
+Follow instructions from TA-Lib and install it:
+
+https://github.com/mrjbq7/ta-lib
+
 Run all unit tests
 
 ::
@@ -86,6 +92,11 @@ or
 ::
 
     $ sudo pip install git+https://github.com/femtotrader/pandas_talib.git
+
+Known Issues
+~~~~~~~~~~~~~
+
+- The method ROC is currently not accurate yet.
 
 Collaborating
 ~~~~~~~~~~~~~
