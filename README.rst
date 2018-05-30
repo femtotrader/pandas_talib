@@ -9,8 +9,6 @@ pandas\_talib
 
 A Python Pandas implementation of technical indicators
 
-As of May 16, 2018, this repo is partially maintained by `Yao Hong Kok <https://github.com/yaohongkok>`__ Currently, May 17, 2018 updates are tested with Python 3.6 and pandas 0.23.0.
-
 Original version from:
 
 -  `Bruno Franca <https://github.com/brunogfranca>`__
@@ -19,6 +17,12 @@ Original version from:
 
 -  `Peter
    Bakker <https://www.quantopian.com/users/51d125a71144e60865000044>`__
+
+Contributors
+
+-  `Yao Hong Kok <https://github.com/yaohongkok>`__
+- `Leonardo Lazzaro <https://github.com/llazzaro>`__
+- `and all... <https://github.com/femtotrader/pandas_talib/graphs/contributors>`__
 
 See also:
 
